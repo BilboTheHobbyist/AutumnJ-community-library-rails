@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
 
   # before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def after_sign_out_path_for(resource_or_scope)
+    user_session_path
+  end
+
 end
