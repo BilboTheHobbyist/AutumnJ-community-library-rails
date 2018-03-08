@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
-  resources :books, only: [:show, :new, :create]
+  resources :books, only: [:show, :new, :create, :destroy]
   resources :book_genres
   resources :book_authors
   resources :genres
@@ -17,5 +17,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     root 'devise/sessions#new'
   end
+
+  get '/books/:id/destroy', to: 'books#destroy'
 
 end

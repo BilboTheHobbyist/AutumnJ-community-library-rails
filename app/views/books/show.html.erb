@@ -10,3 +10,5 @@
 </div>
 
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
+
+<a href="/books/<%= @book.id %>/destroy">Delete</a>
