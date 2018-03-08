@@ -19,9 +19,9 @@
   <% if @books_to_borrow == [] %>
     <p>No books available for borrowing? Update books in your library so they're available for borrowing and encourage others to do the same!</p>
   <% else %>
-    <% @books_to_borrow.each do |book| %> <!-- MAKE BOOKS CLICKABLE LINK -->
+    <% @books_to_borrow.each do |book| %>
       <ul>
-        <%= book.title %>
+        <%= link_to book.title, view_borrowable_book_path(book) %>
       </ul>
     <% end %>
   <% end %>
@@ -32,9 +32,9 @@
   <% if @books_to_return == [] %>
     <p>Not borrowing any books? Get on it!</p>
   <% else %>
-    <% @books_to_return.each do |book| %> <!-- MAKE BOOKS CLICKABLE LINK -->
+    <% @books_to_return.each do |book| %>
       <ul>
-        <%= book.title %>
+        <%= link_to book.title, borrowed_book_path(book) %>
       </ul>
     <% end %>
   <% end %>

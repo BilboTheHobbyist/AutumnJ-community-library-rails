@@ -47,10 +47,15 @@
     color: #000000;
     text-decoration: underline;
     font-family: 'Open Sans Condensed', sans-serif;
+    padding-left: 3mm;
 }
 
 h2 {
     font-size: 20pt;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.login {
+    padding-left: 20mm;
 }
