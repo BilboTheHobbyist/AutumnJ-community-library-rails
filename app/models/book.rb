@@ -1,7 +1,6 @@
 class Book < ActiveRecord::Base
 
-  validates :title, presence: true 
-  #title is also required field when entering book
+  validates :title, presence: true, uniqueness: {scope: :user_id, message: "in use by another book in your collection"}
 
   belongs_to :user
   has_many :book_authors
@@ -10,8 +9,8 @@ class Book < ActiveRecord::Base
   has_many :genres, through: :book_genres
   has_many :comments
 
-  accepts_nested_attributes_for :authors, reject_if: proc { |attributes| attributes['name'].blank? }
-  accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
+  # accepts_nested_attributes_for :authors, reject_if: proc { |attributes| attributes['name'].blank? }
+  # accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
 
   def self.borrowable(current_user)
     where("user_id != ? AND status = ?", current_user.id, "available").order(:title)
@@ -30,15 +29,31 @@ class Book < ActiveRecord::Base
   end
 
   def return
-    self.status = "available"
-    self.borrower = nil
-    self.save 
+    self.update(status: "available", borrower: nil)
+    self.save
   end
 
   def borrow(current_user)
-    self.status = "borrowed"
-    self.borrower = current_user.id
-    self.save 
+    self.update(status: "borrowed", borrower: current_user.id)
+    self.save
+  end
+
+  def authors_attributes=(author_attributes)
+    author_attributes.values.each do |author_details|
+      if author_details[:name].strip != ""
+        author = Author.find_or_create_by(name: author_details[:name].titleize)
+        self.book_authors.build(author: author)
+      end
+    end
+  end
+
+  def genres_attributes=(genre_attributes)
+    genre_attributes.values.each do |genre_details|
+      if genre_details[:name].strip != ""
+        genre = Genre.find_or_create_by(name: genre_details[:name].titleize)
+        self.book_genres.build(genre: genre)
+      end
+    end
   end
 
 end
