@@ -1,0 +1,11 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
+
+<div class="show-title">
+  Below is the info about the book you're returning to: <%= @book.user.name %>
+</div>
+<%= render partial:'show_basic_info', locals: {book: @book} %>
+<%= render partial: 'show_author_genre', locals: {book: @book} %>
+
+<div class="links">
+  <%= link_to "Return Book", return_book_path(@book), method: "post" %>
+</div>
