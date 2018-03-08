@@ -10,6 +10,9 @@ class Book < ActiveRecord::Base
   has_many :genres, through: :book_genres
   has_many :comments
 
+  accepts_nested_attributes_for :authors, reject_if: proc { |attributes| attributes['name'].blank? }
+  accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
+
   def self.borrowable(current_user)
     # where.not(id: current_user.id).where(status: "available")
     where({id: !current_user.id, status: "available"})
