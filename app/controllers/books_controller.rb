@@ -18,13 +18,22 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user = current_user
-    if @book.save
-      redirect_to book_path(@book)
+    if current_user.books.all.find_by(title: params[:book][:title])
+      redirect_to authenticated_root_path, {notice: 'That book is already in your collection.'}
     else 
-      redirect_to new_book_path, {notice: 'There was an error saving the book. Please enter the info again.'}
+      @book = Book.new(book_params)
+      @book.user = current_user
+      if @book.save
+        redirect_to book_path(@book)
+      else 
+        redirect_to new_book_path, {notice: 'There was an error saving the book. Please enter the info again.'}
+      end
     end
+  end
+
+  def destroy
+    @book.delete
+    redirect_to authenticated_root_path, {notice: 'The book was removed from your collection.'}
   end
 
   private
@@ -37,7 +46,17 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :year_published, :language, :status, :description)
+      params.require(:book).permit(
+        :title, 
+        :year_published, 
+        :language, 
+        :status, 
+        :description, 
+        :author_ids => [], 
+        authors_attributes: [:name],
+        :genre_ids => [], 
+        genres_attributes: [:name],
+        )
     end
 
 end
