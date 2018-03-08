@@ -1,3 +1,27 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h1 {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 40pt;
+    font-weight: 700;
+}
+
+h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding-left: 3mm;
+  font-weight: 500;
+}
+
+.book-list {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 13pt;
+}
+
+p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  color: #ff0000;
+  padding-left: 1cm;
+}

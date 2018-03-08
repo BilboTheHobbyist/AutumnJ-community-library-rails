@@ -1,3 +1,43 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-<h2><%= "Signed in as #{current_user.name}" if current_user %></h2>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
+
+<h1>Community Library</h1>
+
+<h2>These are your books:</h2>
+<div class="book-list">
+  <% if @user_books == [] %>
+    <p>Use the link below to add books to your collection!</p>
+  <% else %>
+    <% @user_books.each do |book| %>
+      <ul>
+        <%= link_to book.title, book_path(book) %>
+      </ul>
+    <% end %>
+  <% end %>
+  <!-- ADD LINK TO ADD BOOK -->
+</div>
+
+<h2>Books available for borrowing:</h2>
+<div class="book-list">
+  <% if @books_to_borrow == [] %>
+    <p>No books available for borrowing? Update books in your library so they're available for borrowing and encourage others to do the same!</p>
+  <% else %>
+    <% @books_to_borrow.each do |book| %> <!-- MAKE BOOKS CLICKABLE LINK -->
+      <ul>
+        <%= book.title %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
+<h2>Books you are currently borrowing:</h2>
+<div class="book-list">
+  <% if @books_to_return == [] %>
+    <p>Not borrowing any books? Get on it!</p>
+  <% else %>
+    <% @books_to_return.each do |book| %> <!-- MAKE BOOKS CLICKABLE LINK -->
+      <ul>
+        <%= book.title %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>

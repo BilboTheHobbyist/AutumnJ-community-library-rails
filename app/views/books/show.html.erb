@@ -1,0 +1,12 @@
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
+<div class="show-title">
+  Below is the info about the book you selected:
+</div>
+
+<%= render partial:'show_basic_info', locals: {book: @book} %>
+
+<div class="book-info">
+  <strong>Status:</strong> <%= @text %>
+</div>
+
+<%= render partial: 'show_author_genre', locals: {book: @book} %>

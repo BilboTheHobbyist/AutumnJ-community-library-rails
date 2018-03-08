@@ -1,2 +1,4 @@
 class GenresController < ApplicationController
+
+
 end

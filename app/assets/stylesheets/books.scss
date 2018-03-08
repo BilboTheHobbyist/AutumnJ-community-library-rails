@@ -1,3 +1,23 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.book-info strong {
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding-left: 1cm;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+.book-info {
+  font-family: 'Open Sans Condensed', sans-serif;
+  padding-left: 1cm;
+  font-size: 15pt;
+}
+
+.show-title {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 40pt;
+}
