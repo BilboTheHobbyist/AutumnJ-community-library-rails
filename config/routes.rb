@@ -20,4 +20,12 @@ Rails.application.routes.draw do
 
   get '/books/:id/destroy', to: 'books#destroy'
 
+  get '/books/:id/borrow', to: 'books#show_available_to_borrow', as:'view_borrowable_book'
+
+  post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
+
+  get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
+
+  post '/books/:id/return', to: 'books#return_book', as: 'return_book'
+
 end
