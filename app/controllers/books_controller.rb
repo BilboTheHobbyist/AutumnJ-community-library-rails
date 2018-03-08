@@ -1,20 +1,36 @@
 class BooksController < ApplicationController
 
   before_action :find_book
-  skip_before_action :find_book, :only => [:new, :create]
+  skip_before_action :find_book, :only => [:new, :create, :show_borrowed, :return_book, :show_available_to_borrow, :borrow_book]
 
   def show
-    if @book.borrowed?
-      @text = "Borrowed by #{@book.borrowed?}"
-    elsif @book.available?
+    if @book.borrowed_by?
+      @text = "Borrowed by #{@book.borrowed_by?}"
+    elsif @book.available?(current_user)
       @text = "Available for the community to borrow"
     else
       @text = "Private - not available for the community to borrow"
     end
   end
 
+  def show_borrowed
+    @book = Book.find_by(id: params[:id], borrower: current_user.id)
+    if @book.nil?
+      redirect_to authenticated_root_path
+    end
+  end
+
+  def show_available_to_borrow
+    @book = Book.find(params[:id])
+    if !@book.available?(current_user)
+      redirect_to authenticated_root_path
+    end
+  end
+
   def new
     @book = Book.new
+    @authors = Author.all.order(:name)
+    @genres = Genre.all.order(:name)
   end
 
   def create
@@ -28,6 +44,26 @@ class BooksController < ApplicationController
       else 
         redirect_to new_book_path, {notice: 'There was an error saving the book. Please enter the info again.'}
       end
+    end
+  end
+
+  def borrow_book
+    @book = Book.find(params[:id])
+    if !@book.available?(current_user)
+      redirect_to authenticated_root_path
+    else
+      @book.borrow(current_user)
+      redirect_to authenticated_root_path
+    end
+  end
+
+  def return_book
+    @book = Book.find_by(id: params[:id], borrower: current_user.id)
+    if @book.nil?
+      redirect_to authenticated_root_path
+    else
+      @book.return
+      redirect_to authenticated_root_path
     end
   end
 
