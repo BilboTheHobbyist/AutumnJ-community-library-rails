@@ -1,5 +1,4 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
-
 <h1>Community Library</h1>
 
 <h2>These are your books:</h2>
@@ -14,6 +13,8 @@
     <% end %>
   <% end %>
   <!-- ADD LINK TO ADD BOOK -->
+
+  <%= link_to "Add New Book", new_book_path %>
 </div>
 
 <h2>Books available for borrowing:</h2>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
-  resources :books, only: [:show]
+  resources :books, only: [:show, :new, :create]
   resources :book_genres
   resources :book_authors
   resources :genres

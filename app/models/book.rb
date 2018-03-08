@@ -11,7 +11,8 @@ class Book < ActiveRecord::Base
   has_many :comments
 
   def self.borrowable(current_user)
-    where.not(id: current_user.id).where(status: "available")
+    # where.not(id: current_user.id).where(status: "available")
+    where({id: !current_user.id, status: "available"})
   end
 
   def self.returnable(current_user)
