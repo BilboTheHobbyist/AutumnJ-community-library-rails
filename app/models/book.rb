@@ -14,20 +14,31 @@ class Book < ActiveRecord::Base
   accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
 
   def self.borrowable(current_user)
-    # where.not(id: current_user.id).where(status: "available")
-    where({id: !current_user.id, status: "available"})
+    where("user_id != ? AND status = ?", current_user.id, "available").order(:title)
   end
 
   def self.returnable(current_user)
-    where({borrower: current_user.id, status: "borrowed"})
+    where({borrower: current_user.id, status: "borrowed"}).order(:title)
   end
 
-  def borrowed?
+  def borrowed_by?
     self.status == "borrowed" ? User.find(self.borrower).name : false
   end
 
-  def available?
-    self.status == "available"
+  def available?(current_user)
+    self.status == "available" && self.user_id != current_user.id && self.borrower.nil?
+  end
+
+  def return
+    self.status = "available"
+    self.borrower = nil
+    self.save 
+  end
+
+  def borrow(current_user)
+    self.status = "borrowed"
+    self.borrower = current_user.id
+    self.save 
   end
 
 end
