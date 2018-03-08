@@ -1,0 +1,8 @@
+<div class="field">
+  <% if @text %>
+    Status: <%= @text %>
+  <% else %>
+      <%= f.label :status %>
+      <%= f.select :status, ([["Available for Borrowing", "available"], ["Private: Not for Lending", "private"]]) %> 
+  <% end %>
+</div>
