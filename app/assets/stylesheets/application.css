@@ -41,6 +41,7 @@
     color: #000000;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 13pt;
 }
 
 .field_with_errors {

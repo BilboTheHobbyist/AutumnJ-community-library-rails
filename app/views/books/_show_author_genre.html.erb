@@ -1,16 +1,25 @@
  <div class="book-info">
   <% if book.authors.nil? || book.authors == [] %>
-    <strong>Author(s): </strong>N/A
+    <strong>Author(s): </strong>N/A</br>
   <% else %>
     <strong>Author(s): </strong><% book.authors.order(:name).all.each do |author| %>
       <ul><%= author.name %></ul>
     <% end %>
-  <% end %><br>
+  <% end %>
   <% if book.genres.nil? || book.genres == [] %>
-    <strong>Genres(s): </strong>N/A
+    <strong>Genres(s): </strong>N/A  </br>
   <% else %>
     <strong>Genre(s): </strong><% book.genres.order(:name).all.each do |genre| %>
        <ul><%= genre.name %></ul>
     <% end %>
-  <% end %><br>
+  <% end %>
+  <strong>Comment(s) from users who have borrowed this book:</strong>
+    <% book.comments.all.each do |comment| %>
+
+      <ul><i>Comment: </i><%= comment.content %><br>
+      <i>User: </i><%= comment.user.name %><br>
+      <i> Comment submitted: </i><%= comment.updated_at.strftime("%A, %b %e, at %l:%M %p") %></ul>
+
+    <% end %>
+    <!-- this needs to go somewhere else -->
 </div> 

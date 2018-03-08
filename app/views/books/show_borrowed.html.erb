@@ -7,5 +7,6 @@
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
 
 <div class="links">
-  <%= link_to "Return Book", return_book_path(@book), method: "post" %>
+  <%= link_to "Return Book", return_book_path(@book), method: "post" %> | 
+  <%= link_to "Add Comment before Returning", new_book_comment_path(@book) %>
 </div>
