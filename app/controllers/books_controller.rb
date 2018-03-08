@@ -29,21 +29,32 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    @authors = Author.all.order(:name)
-    @genres = Genre.all.order(:name)
   end
 
-  def create
-    if current_user.books.all.find_by(title: params[:book][:title])
-      redirect_to authenticated_root_path, {notice: 'That book is already in your collection.'}
+  def create #does not show error upon create when author name is added multiple times
+  #without title it does not persist to db and other tests against book joins table cannot run
+    @book = Book.new(book_params)
+    @book.user = current_user
+    if @book.save
+      redirect_to book_path(@book)
     else 
-      @book = Book.new(book_params)
-      @book.user = current_user
-      if @book.save
-        redirect_to book_path(@book)
-      else 
-        redirect_to new_book_path, {notice: 'There was an error saving the book. Please enter the info again.'}
-      end
+      render :new
+    end
+  end
+
+  def edit
+    if @book.borrowed_by? 
+      @text = "Borrowed by #{@book.borrowed_by?}"
+    end
+  end
+
+  def update
+    @book.update(book_params)
+
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render :edit
     end
   end
 
