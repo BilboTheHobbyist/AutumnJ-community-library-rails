@@ -35,7 +35,27 @@
     <%= f.select :status, ([["Available for Borrowing", "Available"], ["Private: Not for Lending", "Private"]]) %>
   </div>
 
-  <div class="actions">
+  <div class="field">
+    <%= f.collection_check_boxes :author_ids, Author.all, :id, :name %><br>
+  </div>
+  <div class="field">
+    <%= f.fields_for :authors, @book.authors.build do |author| %>
+      <%= author.label "New Author Name:" %>
+      <%= author.text_field :name %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name %><br>
+  </div>
+  <div class="field">
+    <%= f.fields_for :genres, @book.genres.build do |genre| %>
+      <%= genre.label "New Genre:" %>
+      <%= genre.text_field :name %>
+    <% end %>
+  </div>
+
+  <div class="submit">
     <%= f.submit %>
   </div>
 <% end %>
