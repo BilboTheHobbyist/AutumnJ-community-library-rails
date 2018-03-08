@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # resources :comments
+  # resources :comments, only: 
   resources :books, only: [:show, :new, :create, :destroy, :edit, :update]
   # resources :book_genres
   # resources :book_authors
@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
 
   get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
+
+  resources :books, only: [:show_borrowed] do
+    resources :comments, only: [:new, :create]
+  end
 
   post '/books/:id/return', to: 'books#return_book', as: 'return_book'
 
