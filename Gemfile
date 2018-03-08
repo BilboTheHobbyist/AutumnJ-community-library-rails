@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'high_voltage'
 gem 'omniauth'
-gem 'omniauth-facebook'
 
 gem 'devise', '~> 4.2.0'
 gem 'devise_invitable'

@@ -39,10 +39,11 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
+<% end %><br>
 
-<h3>Cancel my account</h3>
+<div class="additional-links">
+  <h2>Cancel my account</h2>
+  Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %><br>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+  <%= link_to "Back", :back %>
+</div>

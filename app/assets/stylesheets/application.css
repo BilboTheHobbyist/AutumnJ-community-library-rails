@@ -13,3 +13,43 @@
  *= require_tree .
  *= require_self
  */
+.page-header {
+    background: url(bookshelf.jpg) center no-repeat;
+    height: 200px; 
+    margin-top: 0;
+    background-size: 100% 100%;
+    padding: 20px 20px 20px 40px;
+}
+
+.header-links, .header-links a, .header-links a:visited, .header-links a:active {
+    color: #ffffff;
+    font-size: 20pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+/*    padding: 60px 20px 20px 55px;*/
+}
+
+.notice, .alert {
+    font-size: 15pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+/*    padding: 60px 20px 20px 55px;*/
+}
+
+.field {
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.additional-links, .additional-links a, .additional-links a:visited, .additional-links a:active {
+    color: #000000;
+    text-decoration: underline;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h2 {
+    font-size: 20pt;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
