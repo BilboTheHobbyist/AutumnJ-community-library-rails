@@ -12,5 +12,5 @@
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
 
 <div class="links">
-<a href="/books/<%= @book.id %>/destroy">Delete</a>
+<a href="/books/<%= @book.id %>/destroy">Delete</a> | <%= link_to "Edit", edit_book_path(@book) %>
 </div>

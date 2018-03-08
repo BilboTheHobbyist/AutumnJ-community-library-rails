@@ -30,7 +30,7 @@
     padding-left: 10px 
 }
 
-.notice, .alert {
+.notice, .alert, #error_explanation {
     font-size: 15pt;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -41,6 +41,10 @@
     color: #000000;
     text-decoration: none;
     font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.field_with_errors {
+    display: inline-block;
 }
 
 .additional-links, .additional-links a, .additional-links a:visited, .additional-links a:active {
