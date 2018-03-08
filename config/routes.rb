@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :comments
+  resources :books
+  resources :book_genres
+  resources :book_authors
+  resources :genres
+  resources :authors
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
   # devise_for :users, :controllers => { registrations: 'registrations' }
 
