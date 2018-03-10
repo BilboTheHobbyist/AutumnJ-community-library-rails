@@ -13,11 +13,11 @@ Rails.application.routes.draw do
     root 'devise/sessions#new'
   end
 
-  #borrow book 
+  #view borrowable books/borrow book 
   get '/books/:id/borrow', to: 'books#show_available_to_borrow', as:'view_borrowable_book'
   post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
 
-  #return book 
+  #view borrowed books/return book 
   get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
   post '/books/:id/return', to: 'books#return_book', as: 'return_book'
 
