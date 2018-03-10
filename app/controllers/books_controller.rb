@@ -35,8 +35,7 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
-  def create #does not show error upon create when author name is added multiple times
-  #without title it does not persist to db and other tests against book joins table cannot run
+  def create
     @book = Book.new(book_params)
     @book.user = current_user
     if @book.save
