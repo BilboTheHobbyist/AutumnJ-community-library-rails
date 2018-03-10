@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
   def find_comment
     @comment = Comment.find_by(id: params[:id], user_id: current_user.id, book_id: params[:book_id])
     if @comment.nil?
-      redirect_to borrowed_book_path(@book), {notice: 'Please select a comment below to update or remove.'}
+      redirect_to borrowed_book_path(@book), {notice: 'Please select one of your comments to update or remove.'}
     end
   end
 
