@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # resources :comments, only: 
-
-  # resources :book_genres
-  # resources :book_authors
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
@@ -17,8 +13,6 @@ Rails.application.routes.draw do
     root 'devise/sessions#new'
   end
 
-  get '/books/:id/destroy', to: 'books#destroy'
-
   get '/books/:id/borrow', to: 'books#show_available_to_borrow', as:'view_borrowable_book'
 
   post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
@@ -32,13 +26,10 @@ Rails.application.routes.draw do
   resources :comments, only: [:index]
 
   get '/books/:book_id/comments/:id', to: 'comments#destroy'
-
   post '/books/:id/return', to: 'books#return_book', as: 'return_book'
 
-  resources :books, only: [:show, :new, :create, :destroy, :edit, :update]
-
+  resources :books, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :genres, only: [:show]
-
   resources :authors, only: [:show]
 
 end
