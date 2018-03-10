@@ -1,0 +1,13 @@
+<div class="show-title">
+  <%= @genre.name %>
+</div>
+
+<div class="book-info">
+<% if @books.nil? || @books == [] %>
+  <strong>You don't have any books of that genre in your collection.</strong></br>
+<% else %>
+  <strong>Books: </strong><% @books.order(:title).all.each do |book| %>
+    <ul><%= link_to book.title, book_path(book) %></ul>
+  <% end %>
+<% end %>
+
