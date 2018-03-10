@@ -6,5 +6,9 @@ class Author < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
+  def find_authors_books(current_user) 
+    self.books.where(user_id: current_user.id)
+  end
+
 
 end
