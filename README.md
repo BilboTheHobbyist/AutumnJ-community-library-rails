@@ -1,8 +1,10 @@
 # Community Library - Rails
 
+### A Rails application for tracking books in your library, and sharing/borrowing books from others!
+
 ## Usage
 
-To use this app, clone, run bundle install, run rake db:migrate and then run with rails console (rails c). Create a user account and add as many books as you'd like. You can track your own book collection with this app, and/or use in conjunction with friends. The app allows you to mark some books as 'available' which means other users can request to borrow them. And users are able to borrow books others have marked as 'available', and return when done.
+To use this app, fork and clone this repo, run bundle install, run rake db:migrate and then run locally with rails console (rails c). Create a user account and add as many books as you'd like. You can track your own book collection with this app, and/or use in conjunction with friends. The app allows you to mark some books as 'available' which means other users can request to borrow them. And users are able to borrow books others have marked as 'available', and return when done.
 
 ## Contributing
 
