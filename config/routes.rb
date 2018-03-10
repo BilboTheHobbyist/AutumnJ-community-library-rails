@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # resources :comments, only: 
-  resources :books, only: [:show, :new, :create, :destroy, :edit, :update]
+
   # resources :book_genres
   # resources :book_authors
   # resources :genres
@@ -27,9 +27,15 @@ Rails.application.routes.draw do
   get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
 
   resources :books, only: [:show_borrowed] do
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
 
+  resources :comments, only: [:index]
+
+  get '/books/:book_id/comments/:id', to: 'comments#destroy'
+
   post '/books/:id/return', to: 'books#return_book', as: 'return_book'
+
+  resources :books, only: [:show, :new, :create, :destroy, :edit, :update]
 
 end
