@@ -1,7 +1,7 @@
 <h1>Your comments:</h1>
 
 <div class="book-info">
-<% if @comments == [] || @comments.nil? %>
+<% if !@comments.present? %>
   <i>No comments yet!</i>
 <% else %>
   <% @comments.all.each do |comment| %>
