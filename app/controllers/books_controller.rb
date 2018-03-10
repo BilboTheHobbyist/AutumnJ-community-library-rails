@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def show
     if @book.borrowed_by?
-      @text = "Borrowed by #{@book.borrowed_by?}"
+      @text = "Borrowed by #{@book.borrowed_by?.name}"
     elsif @book.available?(current_user)
       @text = "Available for the community to borrow"
     else
@@ -15,6 +15,8 @@ class BooksController < ApplicationController
 
   def show_borrowed
     @book = Book.find_by(id: params[:id], borrower: current_user.id)
+    book_id = @book.id
+    @comments = Comment.user_comments_by_book(book_id, current_user)
     if @book.nil?
       redirect_to authenticated_root_path
     end
@@ -22,6 +24,8 @@ class BooksController < ApplicationController
 
   def show_available_to_borrow
     @book = Book.find(params[:id])
+    book_id = @book.id
+    @comments = Comment.all_comments(book_id)
     if !@book.available?(current_user)
       redirect_to authenticated_root_path
     end
