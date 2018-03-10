@@ -3,6 +3,8 @@
   <%= f.collection_check_boxes(:author_ids, Author.all.order(:name), :id, :name) do |b| %>
     <%= b.label { b.check_box + b.text } %><br>
   <% end %>
+</div>
+<div class="field">
   <%= f.fields_for :authors, @book.authors.build do |author| %>
     <%= author.label "New Author Name:" %>
     <%= author.text_field :name %>

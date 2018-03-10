@@ -45,8 +45,21 @@
 }
 
 .field_with_errors {
-    display: inline-block;
+  padding: 2px;
+  background-color: red;
+  display: table;
+  display: inline-block;
 }
+
+/*.field_with_errors {
+    display: inline-block;
+    color: #000000;
+    text-decoration: none;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 13pt;
+    padding-left: 0.5cm;
+    padding-bottom: 5mm;
+}*/
 
 .additional-links, .additional-links a, .additional-links a:visited, .additional-links a:active {
     color: #000000;
@@ -55,10 +68,11 @@
     padding-left: 3mm;
 }
 
-h2 {
+h2, h2 a, h2 a:visited, h2 a:active {
     font-size: 20pt;
     text-decoration: none;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Open Sans Condensed', sans-serif;color: #000000;
+    color: #000000;
 }
 
 .login {
