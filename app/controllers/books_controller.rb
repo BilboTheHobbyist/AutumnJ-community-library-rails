@@ -23,15 +23,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def show_borrowed
-    if @book = Book.find_by(id: params[:id], borrower: current_user.id)
-      book_id = @book.id
-      @comments = Comment.user_comments_by_book(book_id, current_user)
-    else
-      redirect_to authenticated_root_path
-    end
-  end
-
   def show_available_to_borrow
     @book = Book.find(params[:id])
     book_id = @book.id
@@ -64,17 +55,7 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-
-  def borrow_book
-    @book = Book.find(params[:id])
-    if !@book.available?(current_user)
-      redirect_to authenticated_root_path
-    else
-      @book.borrow(current_user)
-      redirect_to authenticated_root_path
-    end
-  end
-
+  
   def return_book
     @book = Book.find_by(id: params[:id], borrower: current_user.id)
     if @book.nil?

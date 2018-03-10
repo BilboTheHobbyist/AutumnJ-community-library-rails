@@ -3,8 +3,8 @@
 <div class="show-title">
   Below is the info about the book you'd like to borrow from: <%= @book.user.name %>
 </div>
-<%= render partial:'show_basic_info', locals: {book: @book} %>
-<%= render partial: 'show_author_genre', locals: {book: @book} %>
+<%= render partial:'books/show_basic_info', locals: {book: @book} %>
+<%= render partial: 'books/show_author_genre', locals: {book: @book} %>
 
 <div class="book-info">
 <% if @comments != [] %>
@@ -20,5 +20,5 @@
 <% end%>
 
 <div class="links">
-  <%= link_to "Borrow Book", borrow_book_path(@book), method: "post" %>
+  <%= button_to 'Borrow Book', borrow_path(@book), method: "patch" %>
 </div>

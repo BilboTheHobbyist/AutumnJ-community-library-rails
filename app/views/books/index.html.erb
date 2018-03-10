@@ -21,7 +21,7 @@
   <% else %>
     <% @books_to_borrow.each do |book| %>
       <ul>
-        <%= link_to book.title, view_borrowable_book_path(book) %>
+        <%= link_to book.title, borrow_path(book) %>
       </ul>
     <% end %>
   <% end %>

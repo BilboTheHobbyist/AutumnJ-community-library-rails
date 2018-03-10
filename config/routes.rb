@@ -14,14 +14,14 @@ Rails.application.routes.draw do
   end
 
   #borrow book 
-  get '/books/:id/borrow', to: 'books#show_available_to_borrow', as:'view_borrowable_book'
-  post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
+  # get '/books/:id/borrow', to: 'books#show_available_to_borrow', as:'view_borrowable_book'
+  # post '/books/:id/borrow', to: 'books#borrow_book', as:'borrow_book'
 
   #return book 
-  get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
-  post '/books/:id/return', to: 'books#return_book', as: 'return_book'
+  # get '/books/:id/borrowed', to: 'books#show_borrowed', as:'borrowed_book'
+  # post '/books/:id/return', to: 'books#return_book', as: 'return_book'
 
-  resources :books, only: [:show_borrowed] do
+  resources :return, only: [:show] do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
 
@@ -29,6 +29,10 @@ Rails.application.routes.draw do
   resources :comments, only: [:index]
 
   get '/books/:book_id/comments/:id', to: 'comments#destroy'
+
+  resources :borrow, only: [:show, :update]
+
+  resources :return, only: [:show, :index]
  
   resources :books, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :genres, only: [:show]
