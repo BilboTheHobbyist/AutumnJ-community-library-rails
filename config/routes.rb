@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   # resources :book_genres
   # resources :book_authors
-  # resources :genres
-  # resources :authors
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   # sets the index action for the home controller as the root path for a signed in user 
@@ -37,5 +36,9 @@ Rails.application.routes.draw do
   post '/books/:id/return', to: 'books#return_book', as: 'return_book'
 
   resources :books, only: [:show, :new, :create, :destroy, :edit, :update]
+
+  resources :genres, only: [:show]
+
+  resources :authors, only: [:show]
 
 end
