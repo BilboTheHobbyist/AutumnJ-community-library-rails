@@ -1,7 +1,17 @@
 class BooksController < ApplicationController
 
   before_action :find_book
-  skip_before_action :find_book, :only => [:new, :create, :show_borrowed, :return_book, :show_available_to_borrow, :borrow_book]
+  skip_before_action :find_book, :only => [:index, :new, :create, :show_borrowed, :return_book, :show_available_to_borrow, :borrow_book]
+
+  def index
+    @user_books = current_user.all_books
+    @books_to_borrow = Book.borrowable(current_user)
+    @books_to_return = Book.returnable(current_user)
+  end
+
+  def new
+    @book = Book.new
+  end
 
   def show
     if @book.borrowed_by?
@@ -14,10 +24,10 @@ class BooksController < ApplicationController
   end
 
   def show_borrowed
-    @book = Book.find_by(id: params[:id], borrower: current_user.id)
-    book_id = @book.id
-    @comments = Comment.user_comments_by_book(book_id, current_user)
-    if @book.nil?
+    if @book = Book.find_by(id: params[:id], borrower: current_user.id)
+      book_id = @book.id
+      @comments = Comment.user_comments_by_book(book_id, current_user)
+    else
       redirect_to authenticated_root_path
     end
   end
@@ -29,10 +39,6 @@ class BooksController < ApplicationController
     if !@book.available?(current_user)
       redirect_to authenticated_root_path
     end
-  end
-
-  def new
-    @book = Book.new
   end
 
   def create
