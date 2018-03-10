@@ -47,7 +47,7 @@ class BooksController < ApplicationController
 
   def edit
     if @book.borrowed_by? 
-      @text = "Borrowed by #{@book.borrowed_by?}"
+      @text = "Borrowed by #{@book.borrowed_by?.name}"
     end
   end
 
@@ -80,6 +80,9 @@ class BooksController < ApplicationController
   end
 
   def destroy
+    @book.comments.destroy_all
+    @book.book_authors.destroy_all
+    @book.book_genres.destroy_all
     @book.delete
     redirect_to authenticated_root_path, {notice: 'The book was removed from your collection.'}
   end
