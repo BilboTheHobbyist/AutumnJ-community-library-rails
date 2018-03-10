@@ -10,14 +10,10 @@ class AuthorsController < ApplicationController
 
   def find_author
     @author = Author.find_by(id: params[:id])
-    @authors = find_books(@author)
+    @books = @author.find_authors_books(current_user)
     if !@author
       redirect_to authenticated_root_path
     end
-  end
-
-  def find_books(author)
-    Book.find_books_by_author(author, current_user)
   end
   
 end
