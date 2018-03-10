@@ -21,7 +21,7 @@ class Book < ActiveRecord::Base
   end
 
   def borrowed_by?
-    self.status == "borrowed" ? User.find(self.borrower).name : false
+    self.status == "borrowed" ? User.find(self.borrower) : false
   end
 
   def available?(current_user)
