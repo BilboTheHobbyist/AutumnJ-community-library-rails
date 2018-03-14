@@ -16,7 +16,7 @@ class BooksController < ApplicationController
   def show
     if @book.borrowed_by?
       @text = "Borrowed by #{@book.borrowed_by?.name}"
-    elsif @book.available?(current_user)
+    elsif @book.status == "available"
       @text = "Available for the community to borrow"
     else
       @text = "Private - not available for the community to borrow"
