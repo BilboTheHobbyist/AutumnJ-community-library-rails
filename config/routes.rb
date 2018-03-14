@@ -27,8 +27,6 @@ Rails.application.routes.draw do
 
   #powers comment index, which allows editing and deletion through nested routes above
   resources :comments, only: [:index]
-
-  get '/books/:book_id/comments/:id', to: 'comments#destroy'
  
   resources :books, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :genres, only: [:show]
