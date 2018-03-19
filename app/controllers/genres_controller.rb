@@ -8,16 +8,12 @@ class GenresController < ApplicationController
 
   private
 
-  def find_genre
+    def find_genre
     @genre = Genre.find_by(id: params[:id])
-    @books = find_books(@genre)
+    @books = @genre.find_genres_books(current_user)
     if !@genre
       redirect_to authenticated_root_path
     end
-  end
-
-  def find_books(genre)
-    Book.find_books_by_genre(genre, current_user)
   end
 
 end
