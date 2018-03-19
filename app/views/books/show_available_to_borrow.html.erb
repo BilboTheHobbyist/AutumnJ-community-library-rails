@@ -3,21 +3,16 @@
 <div class="show-title">
   Below is the info about the book you'd like to borrow from: <%= @book.user.name %>
 </div>
+
 <%= render partial:'show_basic_info', locals: {book: @book} %>
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
 
 <div class="book-info">
-<% if @comments != [] %>
-  <strong>Comments about this book:</strong>
-    <% @comments.all.each do |comment| %>
-
-      <ul><i>Comment: </i><%= comment.content %><br>
-      <i>User: </i><%= comment.user.name %><br>
-      <i> Comment submitted: </i><%= comment.updated_at.strftime("%A, %b %e, %Y") %><br></ul>
-
-    <% end %>
-  </div>
-<% end%>
+  <% if @comments.present? %>
+    <strong>Comments about this book:</strong>
+      <%= render partial: 'comments/display_all', locals: {comments: @comments} %>
+  <% end%>
+</div>
 
 <div class="links">
   <%= link_to "Borrow Book", borrow_book_path(@book), method: "post" %>
