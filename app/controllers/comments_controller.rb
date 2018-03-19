@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id #should this be hidden field in form?
+    @comment.user_id = current_user.id 
     if @comment.save
       redirect_to borrowed_book_path(@book) 
     else
