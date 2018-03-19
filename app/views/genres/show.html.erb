@@ -3,7 +3,7 @@
 </div>
 
 <div class="book-info">
-<% if @books.nil? || @books == [] %>
+<% if !@books.present? %>
   <strong>You don't have any books of that genre in your collection.</strong></br>
 <% else %>
   <strong><%= @genre.name %> books in your collection: </strong><% @books.order(:title).all.each do |book| %>
