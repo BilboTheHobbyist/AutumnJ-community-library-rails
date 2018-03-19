@@ -13,6 +13,16 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def create
+    @book = Book.new(book_params)
+    @book.user = current_user
+    if @book.save
+      redirect_to book_path(@book)
+    else 
+      render :new
+    end
+  end
+
   def show
     if @book.borrowed_by?
       @text = "Borrowed by #{@book.borrowed_by?.name}"
@@ -41,16 +51,6 @@ class BooksController < ApplicationController
     end
   end
 
-  def create
-    @book = Book.new(book_params)
-    @book.user = current_user
-    if @book.save
-      redirect_to book_path(@book)
-    else 
-      render :new
-    end
-  end
-
   def edit
     if @book.borrowed_by? 
       @text = "Borrowed by #{@book.borrowed_by?.name}"
@@ -70,7 +70,7 @@ class BooksController < ApplicationController
     if !@book.available?(current_user)
       redirect_to authenticated_root_path
     else
-      @book.borrow(current_user)
+      @book.borrow_book(current_user)
       redirect_to authenticated_root_path
     end
   end
@@ -80,7 +80,7 @@ class BooksController < ApplicationController
     if @book.nil?
       redirect_to authenticated_root_path
     else
-      @book.return
+      @book.return_book
       redirect_to authenticated_root_path
     end
   end
