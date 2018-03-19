@@ -56,12 +56,4 @@ class Book < ActiveRecord::Base
     end
   end
 
-  def self.find_books_by_genre(genre, current_user)
-    includes(:genres).where(genres: {id: genre.id}).where(user_id: current_user.id)
-  end
-
-  # def self.find_books_by_author(author, current_user)
-  #   includes(:authors).where(authors: {id: author.id}).where(user_id: current_user.id)
-  # end
-
 end
