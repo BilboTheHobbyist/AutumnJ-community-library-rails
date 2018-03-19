@@ -10,22 +10,17 @@
 </div>
 
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
- <!-- this needs to go somewhere else -->
+
 <div class="book-info">
-  <% if @book.comments != [] %>
+  <% if @book.comments.present? %>
     <strong>Comment(s) from users who have borrowed this book:</strong>
-    <% @book.comments.all.each do |comment| %>
 
-      <ul><i>Comment: </i><%= comment.content %><br>
-      <i>User: </i><%= comment.user.name %><br>
-      <i> Comment submitted: </i><%= comment.updated_at.strftime("%A, %b %e") %></ul>
-
-    <% end %>
+    <%= render partial: 'comments/display_all', locals: {comments: @book.comments} %>
 
   <% end %>
 </div>
 
 <div class="links">
   <%= link_to 'Delete', @book, method: :delete %> | <%= link_to "Edit", edit_book_path(@book) %>
-</div>
+</div> 
 
