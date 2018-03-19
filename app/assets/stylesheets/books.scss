@@ -22,10 +22,10 @@
 }
 
 .show-title {
-    text-align: center;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: 500;
-    font-size: 40pt;
+  text-align: center;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 40pt;
 }
 
 .book-info ul {
@@ -35,8 +35,12 @@
 }
 
 .links {
-  font-family: 'Open Sans Condensed', sans-serif;
-  padding-left: 4cm;
-  font-size: 15pt;
+  padding-left: 2cm;
   padding-top: 5mm;
+}
+
+.links a, .links a:visited, .links a:active {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 15pt;
+  color: #295499;
 }
