@@ -48,20 +48,9 @@
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
-  display: table;
+  background-color: #FF7F50;
   display: inline-block;
 }
-
-/*.field_with_errors {
-    display: inline-block;
-    color: #000000;
-    text-decoration: none;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 13pt;
-    padding-left: 0.5cm;
-    padding-bottom: 5mm;
-}*/
 
 .additional-links, .additional-links a, .additional-links a:visited, .additional-links a:active {
     color: #000000;
