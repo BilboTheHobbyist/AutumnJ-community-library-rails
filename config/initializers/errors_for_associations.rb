@@ -1,3 +1,5 @@
+#testing new method to display errors for associations - used label instead
+
 # # Make sure errors on associations are also set on the _id and _ids fields
 # module ActionView::Helpers::ActiveModelInstanceTag
 
