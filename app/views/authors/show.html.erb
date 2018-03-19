@@ -1,9 +1,9 @@
 <div class="show-title">
   <%= @author.name %>
 </div>
-<!-- create template to render this and genres -->
+
 <div class="book-info">
-<% if @books.nil? || @books == [] %>
+<% if !@books.present? %>
   <strong>You don't have any books by <%= @author.name %> in your collection.</strong></br>
 <% else %>
   <strong>Books by <%= @author.name %> in your collection: </strong><% @books.order(:title).all.each do |book| %>
