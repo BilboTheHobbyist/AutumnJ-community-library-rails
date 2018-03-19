@@ -1,18 +1,9 @@
 <%= form_for(@comment, url: book_comment_path(@book, @comment)) do |f| %>
 <%= f.hidden_field :book_id, value: @book.id %>
 <%= f.hidden_field :comment_id, value: @comment.id %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      <li><%= link_to "Back", borrowed_book_path(@book) %></li>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: 'layouts/error_messages', locals: {obj: @comment, back: borrowed_book_path(@book)} %>
+
   <h1>Update your comment below!</h1>
 
   <%= render 'form', f: f %>
