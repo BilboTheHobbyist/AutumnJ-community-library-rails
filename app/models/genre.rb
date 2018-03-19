@@ -6,4 +6,8 @@ class Genre < ActiveRecord::Base
 
   validates_uniqueness_of :name
 
+  def find_genres_books(current_user) 
+    self.books.where(user_id: current_user.id)
+  end
+
 end
