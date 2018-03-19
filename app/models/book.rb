@@ -9,9 +9,6 @@ class Book < ActiveRecord::Base
   has_many :genres, through: :book_genres
   has_many :comments
 
-  # accepts_nested_attributes_for :authors, reject_if: proc { |attributes| attributes['name'].blank? }
-  # accepts_nested_attributes_for :genres, reject_if: proc { |attributes| attributes['name'].blank? }
-
   def self.borrowable(current_user)
     where("user_id != ? AND status = ?", current_user.id, "available").order(:title)
   end
@@ -28,12 +25,12 @@ class Book < ActiveRecord::Base
     self.status == "available" && self.user_id != current_user.id && self.borrower.nil?
   end
 
-  def return
+  def return_book
     self.update(status: "available", borrower: nil)
     self.save
   end
 
-  def borrow(current_user)
+  def borrow_book(current_user)
     self.update(status: "borrowed", borrower: current_user.id)
     self.save
   end
