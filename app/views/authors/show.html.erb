@@ -3,10 +3,22 @@
 </div>
 
 <div class="book-info">
-<% if !@books.present? %>
-  <strong>You don't have any books by <%= @author.name %> in your collection.</strong></br>
-<% else %>
-  <strong>Books by <%= @author.name %> in your collection: </strong><% @books.order(:title).all.each do |book| %>
-    <ul><%= link_to book.title, book_path(book) %></ul>
+  <% if !@books.present? %>
+    <strong>You don't have any books by <%= @author.name %> in your collection.</strong></br>
+  <% else %>
+    <strong>Books by <%= @author.name %> in your collection: </strong><% @books.all.each do |book| %>
+      <ul><%= link_to book.title, book_path(book) %></ul>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
+<div class="book-info">
+  <% if !@borrowable_books.present? %>
+    <strong>No books available to borrow by <%= @author.name %>.</strong></br>
+  <% else %>
+    <strong>Books by <%= @author.name %> available to borrow: </strong><% @borrowable_books.all.each do |book| %>
+      <ul><%= link_to book.title, view_borrowable_book_path(book) %></ul>
+    <% end %>
+  <% end %>
+</div>
+
