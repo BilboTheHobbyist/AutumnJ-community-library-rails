@@ -3,7 +3,7 @@
 
 <h2>These are your books:</h2>
 <div class="book-list">
-  <% if @user_books == [] %>
+  <% if !@user_books.present? %>
     <p><%= link_to "No books yet - add one now!", new_book_path %></p>
   <% else %>
     <% @user_books.each do |book| %>
@@ -16,7 +16,7 @@
 
 <h2>Books available for borrowing:</h2>
 <div class="book-list">
-  <% if @books_to_borrow == [] %>
+  <% if !@books_to_borrow.present? %>
     <p>No books available for borrowing? Update books in your library so they're available for borrowing and encourage others to do the same!</p>
   <% else %>
     <% @books_to_borrow.each do |book| %>
@@ -29,7 +29,7 @@
 
 <h2>Books you are currently borrowing:</h2>
 <div class="book-list">
-  <% if @books_to_return == [] %>
+  <% if !@books_to_return.present? %>
     <p>Not borrowing any books? Get on it!</p>
   <% else %>
     <% @books_to_return.each do |book| %>
