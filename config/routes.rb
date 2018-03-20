@@ -23,7 +23,7 @@ Rails.application.routes.draw do
 
   #nested this way for clarity, as new comments are instantiated from borrowed books only
   #comment belongs_to book and borrowed is "nested" under books/:id
-  #comment CRUD routes live with book -- books/:book_id/comments/:id
+  #so comment CRUD routes live with books#show -- books/:book_id/comments/:id
   resources :books, only: [:show_borrowed] do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
