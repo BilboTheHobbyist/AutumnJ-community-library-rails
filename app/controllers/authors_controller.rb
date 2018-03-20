@@ -2,7 +2,7 @@ class AuthorsController < ApplicationController
 
   before_action :find_author
 
-  def show
+  def show    
 
   end
 
