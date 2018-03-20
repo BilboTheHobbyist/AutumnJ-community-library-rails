@@ -28,6 +28,7 @@ gem 'omniauth'
 
 gem 'devise', '~> 4.2.0'
 # gem 'devise_invitable'
+# load environment variables that I can hide
 gem 'dotenv-rails'
 gem 'omniauth-github'
 
