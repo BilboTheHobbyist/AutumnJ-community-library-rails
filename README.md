@@ -2,6 +2,10 @@
 
 ### A Rails application for tracking books in your library, and sharing/borrowing books from others!
 
+## Purpose
+
+Just a French translation of the original project.
+
 ## Usage
 
 To use this app, fork and clone this repo, run bundle install, run `rake db:migrate` and then run locally with `rails s -p 3000` (can access rails console with `rails c`). Create a user account and add as many books as you'd like. You can track your own book collection with this app, and/or use in conjunction with friends. The app allows you to mark some books as 'available' which means other users can request to borrow them. And users are able to borrow books others have marked as 'available', and return when done.
@@ -10,12 +14,8 @@ To track books you've enjoyed. Leave a comment when you borrow a book - these co
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/AutumnJ/AutumnJ-community-library-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Apart for cosmetic changes, it may be more usefull to contribute to the original project.
 
 ## License
 
 The app is available as open source under the terms of the [MIT License](https://github.com/AutumnJ/AutumnJ-community-library-rails/blob/master/LICENSE.md).
-
-## Code of Conduct
-
-Everyone interacting in the Community Library project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/AutumnJ/AutumnJ-community-library-rails/blob/master/CODE_OF_CONDUCT.md).
