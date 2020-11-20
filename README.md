@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Just a French translation of the original project.
+Just a French translation of the original project, with gem versions bumped up.
 
 ## Usage
 
