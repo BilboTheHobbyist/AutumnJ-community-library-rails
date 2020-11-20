@@ -21,3 +21,16 @@
 
 en:
   hello: "Hello world"
+  layout:
+    application:
+      title: "AutumnJRailsCommunityLibrary"
+  books:
+    index:
+      h1: "Community Library"
+      h2_booklist: "These are your books:"
+      p_nobook: "No books yet - add one now!"
+      h2_lendinglist: "Books available for borrowing:"
+      p_nolending: "No books available for borrowing? Update books in your library so they're available for borrowing and encourage others to do the same!"
+      h2_borrowinglist: "Books you are currently borrowing:"
+      p_noborrowing: "Not borrowing any books? Get on it!"
+      h2_comments: "View Your Comments"

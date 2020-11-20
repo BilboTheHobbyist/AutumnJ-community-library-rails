@@ -19,5 +19,18 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   hello: "Bonjour à tous"
+  layouts:
+    application:
+      title: "Soyons livres"
+  books:
+    index:
+      h1: "Livres en commun"
+      h2_booklist: "Voici vos livres :"
+      p_nobook: "Pas encore de livre ? Ajoutez-en un"
+      h2_lendinglist: "Livres à prêter :"
+      p_nolending: "Pas de livres à prêter ? Mettez à jour les vôtres et encouragez les autres membres à faire pareil !"
+      h2_borrowinglist: "Liste de vos emprunts en cours :"
+      p_noborrowing: "Pas d'emprunt en cours ? Ne soyez pas timides !"
+      h2_comments: "Accédez à vos commentaires"                    

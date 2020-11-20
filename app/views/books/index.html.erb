@@ -1,10 +1,10 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
-<h1>Community Library</h1>
+<h1><%= t('.h1') %></h1>
 
-<h2>These are your books:</h2>
+<h2><%= t('.h2_booklist') %></h2>
 <div class="book-list">
   <% if !@user_books.present? %>
-    <p><%= link_to "No books yet - add one now!", new_book_path %></p>
+    <p><%= link_to(t('.p_nobook'), new_book_path) %></p>
   <% else %>
     <% @user_books.each do |book| %>
       <ul>
@@ -14,10 +14,10 @@
   <% end %>
 </div>
 
-<h2>Books available for borrowing:</h2>
+<h2><%= t('.h2_lendinglist') %></h2>
 <div class="book-list">
   <% if !@books_to_borrow.present? %>
-    <p>No books available for borrowing? Update books in your library so they're available for borrowing and encourage others to do the same!</p>
+    <p><%= t('.p_nolending') %></p>
   <% else %>
     <% @books_to_borrow.each do |book| %>
       <ul>
@@ -27,10 +27,10 @@
   <% end %>
 </div>
 
-<h2>Books you are currently borrowing:</h2>
+<h2><%= t('.h2_borrowinglist') %></h2>
 <div class="book-list">
   <% if !@books_to_return.present? %>
-    <p>Not borrowing any books? Get on it!</p>
+    <p><%= t('.p_noborrowing') %></p>
   <% else %>
     <% @books_to_return.each do |book| %>
       <ul>
@@ -40,4 +40,4 @@
   <% end %>
 </div>
 
-<h2><%= link_to "View Your Comments", comments_path %></h2>
+<h2><%= link_to(t('.h2_comments'), comments_path) %></h2>
