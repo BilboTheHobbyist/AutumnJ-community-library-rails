@@ -21,10 +21,22 @@
 
 en:
   hello: "Hello world"
-  layout:
-    application:
-      title: "AutumnJRailsCommunityLibrary"
   books:
+    form_author_genre:
+      pick_authors: "Select author(s):"
+      new_author: "New Author Name:"
+      pick_genres: " Select genre(s):"
+      new_genre: "New Genre:"
+    show_author_genre:
+      authors: "Author(s): "
+      genres: "Genre(s): "
+    show_basic_info:
+      title: "Title: "
+      year: "Year Published: "
+      language: "Language: "
+      description: "Description: "
+    edit:
+      h1: "Update book info below!"
     index:
       h1: "Community Library"
       h2_booklist: "These are your books:"
@@ -34,3 +46,12 @@ en:
       h2_borrowinglist: "Books you are currently borrowing:"
       p_noborrowing: "Not borrowing any books? Get on it!"
       h2_comments: "View Your Comments"
+    new:
+      h1: "Enter book info below!"
+    show_available_to_borrow:
+      book_info: "Below is the info about the book you'd like to borrow from: "
+      book_comment: "Comments about this book:"
+      book_borrow: "Borrow Book"
+  layout:
+    application:
+      title: "AutumnJRailsCommunityLibrary"      

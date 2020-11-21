@@ -1,22 +1,22 @@
 <div class="field">
-  <%= f.label :book_authors, "Select author(s):" %><br>
+  <%= f.label :book_authors, t('.pick_authors') %><br>
   <%= f.collection_check_boxes(:author_ids, Author.all.order(:name), :id, :name) do |b| %>
     <%= b.label { b.check_box + b.text } %><br>
   <% end %>
 </div>
 <div class="field">
-  <%= f.label :book_authors, "New Author Name:" %>
+  <%= f.label :book_authors, t('.new_author') %>
   <%= f.fields_for :authors, @book.authors.build do |author| %>
     <%= author.text_field :name %>
   <% end %>
 </div>
 
 <div class="field">
-  <%= f.label :book_genres, " Select genre(s):" %><br>
+  <%= f.label :book_genres, t('.pick_genres') %><br>
   <%= f.collection_check_boxes(:genre_ids, Genre.all.order(:name), :id, :name) do |b| %>
     <%= b.label { b.check_box + b.text } %><br>
   <% end %>
-  <%= f.label :book_genres, "New Genre:" %>
+  <%= f.label :book_genres, t('.new_genre') %>
   <%= f.fields_for :genres, @book.genres.build do |genre| %>
     <%= genre.text_field :name %>
   <% end %>

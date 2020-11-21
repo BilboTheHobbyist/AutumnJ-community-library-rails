@@ -1,18 +1,18 @@
 <div class="book-info">
-  <strong>Title: </strong><%= book.title %><br>
+  <strong><%= t('.title') %></strong><%= book.title %><br>
   <% if book.year_published.nil? %>
-    <strong>Year Published: </strong>N/A
+    <strong><%= t('.year') %></strong>N/A
   <% else %>
-    <strong>Year Published: </strong><%= book.year_published %>
+    <strong><%= t('.year') %></strong><%= book.year_published %>
   <% end %><br>
   <% if book.language.nil? || book.language == "" %>
-    <strong>Language: </strong>N/A
+    <strong><%= t('.language') %></strong>N/A
   <% else %>
-    <strong>Language: </strong><%= book.language %>
+    <strong><%= t('.language') %></strong><%= book.language %>
   <% end %><br>
   <% if book.description.nil? || book.description == "" %>
-    <strong>Description: </strong>N/A
+    <strong><%= t('.description') %></strong>N/A
   <% else %>
-    <strong>Description: </strong><%= book.description %>
+    <strong><%= t('.description') %></strong><%= book.description %>
   <% end %><br>
 </div>

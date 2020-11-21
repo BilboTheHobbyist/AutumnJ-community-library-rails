@@ -1,7 +1,7 @@
 <%= form_for(@book) do |f| %>
   <%= render partial: 'layouts/error_messages', locals: {obj: @book, back: book_path(@book)} %>
 
-  <h1>Update book info below!</h1>
+  <h1><%= t('.h1') %></h1>
 
   <%= render 'form_basic_info', f: f %>
   <%= render 'form_status', f: f %>

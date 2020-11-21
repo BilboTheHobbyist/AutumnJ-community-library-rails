@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
 
 <div class="show-title">
-  Below is the info about the book you'd like to borrow from: <%= @book.user.name %>
+  <%= t('.book_info')%><% @book.user.name %>
 </div>
 
 <%= render partial:'show_basic_info', locals: {book: @book} %>
@@ -9,11 +9,11 @@
 
 <div class="book-info">
   <% if @comments.present? %>
-    <strong>Comments about this book:</strong>
+    <strong><%= t('.book_comment') %></strong>
       <%= render partial: 'comments/display_all', locals: {comments: @comments} %>
   <% end%>
 </div>
 
 <div class="links">
-  <%= link_to "Borrow Book", borrow_book_path(@book), method: "post" %>
+  <%= link_to(t('.book_borrow'), borrow_book_path(@book), method: "post") %>
 </div>

@@ -21,16 +21,37 @@
 
 fr:
   hello: "Bonjour à tous"
-  layouts:
-    application:
-      title: "Soyons livres"
   books:
+    form_author_genre:
+      pick_authors: "Selectionnez le, la ou les auteurs :"
+      new_author: "Nouvel auteur :"
+      pick_genres: "Selectionnez le ou les genres :"
+      new_genre: "Nouveau genre :"
+    show_author_genre:
+      authors: "Auteur(e/s/es) : "
+      genres: "Genre(s) : "
+    show_basic_info:
+      title: "Titre : "
+      year: "Année de publication : "
+      language: "Langue : "
+      description: "Description : "
+    edit:
+      h1: "Mettez à jour la fiche du livre ci-dessous !"
     index:
       h1: "Livres en commun"
       h2_booklist: "Voici vos livres :"
       p_nobook: "Pas encore de livre ? Ajoutez-en un"
       h2_lendinglist: "Livres à prêter :"
-      p_nolending: "Pas de livres à prêter ? Mettez à jour les vôtres et encouragez les autres membres à faire pareil !"
+      p_nolending: "Pas de livres à prêter ? Mettez à jour les vôtres et encouragez les autres membres à en faire de même !"
       h2_borrowinglist: "Liste de vos emprunts en cours :"
       p_noborrowing: "Pas d'emprunt en cours ? Ne soyez pas timides !"
-      h2_comments: "Accédez à vos commentaires"                    
+      h2_comments: "Accédez à vos commentaires"            
+    new:
+      h1: "Saisissez la fiche du livre ci-dessous !"
+    show_available_to_borrow:
+      book_info: "Ci-dessous la fiche du livre que vous voulez réserver pour emprunt : "
+      book_comment: "Commentaires sur ce livre :"
+      book_borrow: "Réservez ce livre pour l'emprunter"                
+  layouts:
+    application:
+      title: "Soyons livres"
