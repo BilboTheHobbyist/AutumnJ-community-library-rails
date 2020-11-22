@@ -4,9 +4,9 @@
 
 <div class="book-info">
   <% if !@books.present? %>
-    <strong>You don't have any books of that genre in your collection.</strong><br></br>
+    <strong><%= t('.no_book') %></strong><br></br>
   <% else %>
-    <strong><%= @genre.name %> books in your collection: </strong><% @books.all.each do |book| %>
+    <strong><%= @genre.name %><%= t('.your_book') %></strong><% @books.all.each do |book| %>
       <ul><%= link_to book.title, book_path(book) %></ul>
     <% end %>
   <% end %>
@@ -14,9 +14,9 @@
 
 <div class="book-info">
   <% if !@borrowable_books.present? %>
-    <strong>No books of this genre are available to borrow.</strong></br>
+    <strong><%= t('.genre_nobook') %></strong></br>
   <% else %>
-    <strong><%= @genre.name %> books available to borrow: </strong><% @borrowable_books.all.each do |book| %>
+    <strong><%= @genre.name %><%= t('.genre_book') %></strong><% @borrowable_books.all.each do |book| %>
       <ul><%= link_to book.title, view_borrowable_book_path(book) %></ul>
     <% end %>
   <% end %>

@@ -1,19 +1,19 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700" rel="stylesheet">
 <div class="show-title">
-  Below is the info about the book you selected:
+  <%= t('.select_book') %>
 </div>
 
 <%= render partial:'show_basic_info', locals: {book: @book} %>
 
 <div class="book-info">
-  <strong>Status:</strong> <%= @text %>
+  <strong><%= t('.status') %></strong> <%= @text %>
 </div>
 
 <%= render partial: 'show_author_genre', locals: {book: @book} %>
 
 <div class="book-info">
   <% if @book.comments.present? %>
-    <strong>Comment(s) from users who have borrowed this book:</strong>
+    <strong><%= t('.user_comments') %></strong>
 
     <%= render partial: 'comments/display_all', locals: {comments: @book.comments} %>
 
@@ -21,6 +21,7 @@
 </div>
 
 <div class="links">
-  <%= link_to 'Delete', @book, method: :delete %> | <%= link_to "Edit", edit_book_path(@book) %>
+  <%# = link_to (t('.delete'), @book , method: "delete") %> <%# = link_to( t('.edit'), edit_book_path(@book)) %>
+  <%= link_to(t('.delete'), book_path(@book), method: :delete) %> | <%= link_to( t('.edit'), edit_book_path(@book)) %>  
 </div> 
 

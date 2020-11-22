@@ -21,6 +21,11 @@
 
 en:
   hello: "Hello world"
+  authors:
+    no_book: "You don't have any books by %{authorname} in your collection."
+    author_book: "Books by %{authorname} in your collection: "
+    noborrow_book: "No books available to borrow by %{authorname}."
+    borrow_book: "Books by %{authorname} available to borrow: "
   books:
     form_author_genre:
       pick_authors: "Select author(s):"
@@ -52,6 +57,48 @@ en:
       book_info: "Below is the info about the book you'd like to borrow from: "
       book_comment: "Comments about this book:"
       book_borrow: "Borrow Book"
-  layout:
+    show_borrowed:
+      returned_book: "Below is the info about the book you're returning to: "
+      comment_book: "Your comments about this book:"
+      comment_note: |
+        "Comments are visible to book's owner, and other users when book is available for borrowing. 
+        You can view all your comments from the comments section of the homepage."
+      comment: "Comment: "
+      comment_submitted: " Comment submitted: "
+      delete: "Delete"
+      edit: "Edit"
+      return_book: "Return Book"
+      comment_ones_book: "Leave a comment about %{username}'s copy of %{title}"
+    show:
+      select_book: "Below is the info about the book you selected:"
+      status: "Status:"
+      user_comments: "Comment(s) from users who have borrowed this book:"
+      delete: "Delete"
+      edit: "Edit"
+  comments:
+    display_all:
+      comment: "Comment: "
+      user: "Utilisateur"
+      comment_submitted: " Comment submitted: "  
+    edit:
+      h1: "Update your comment below!"
+    index:
+      h1: "Your comments:"      
+      book: "Book Title: "
+      comment: "Comment: "
+      comment_submitted: " Comment submitted: "
+      delete: "Delete"
+      edit: "Edit"
+  new:
+    h1: "Enter a comment below!"      
+  genre:
+    show:
+      no_book: "You don't have any books of that genre in your collection."
+      your_book: " books in your collection: "
+      genre_nobook: "No books of this genre are available to borrow."
+      genre_book: " books available to borrow: "
+  layouts:
+    error_messages:
+      h2: " prohibited this from being saved:"
     application:
       title: "AutumnJRailsCommunityLibrary"      

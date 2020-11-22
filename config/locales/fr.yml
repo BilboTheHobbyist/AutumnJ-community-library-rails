@@ -21,6 +21,11 @@
 
 fr:
   hello: "Bonjour à tous"
+  authors:
+    no_book: "Vous n'avez aucun livre de %{authorname} dans votre bibliothèque."
+    author_book: "Books by %{authorname} in your collection: "
+    noborrow_book: "Pas de livre de %{authorname} empruntable."
+    borrow_book: "Livres de %{authorname} empruntables : "        
   books:
     form_author_genre:
       pick_authors: "Selectionnez le, la ou les auteurs :"
@@ -41,7 +46,7 @@ fr:
       h1: "Livres en commun"
       h2_booklist: "Voici vos livres :"
       p_nobook: "Pas encore de livre ? Ajoutez-en un"
-      h2_lendinglist: "Livres à prêter :"
+      h2_lendinglist: "Livres disponibles :"
       p_nolending: "Pas de livres à prêter ? Mettez à jour les vôtres et encouragez les autres membres à en faire de même !"
       h2_borrowinglist: "Liste de vos emprunts en cours :"
       p_noborrowing: "Pas d'emprunt en cours ? Ne soyez pas timides !"
@@ -51,7 +56,49 @@ fr:
     show_available_to_borrow:
       book_info: "Ci-dessous la fiche du livre que vous voulez réserver pour emprunt : "
       book_comment: "Commentaires sur ce livre :"
-      book_borrow: "Réservez ce livre pour l'emprunter"                
+      book_borrow: "Réservez ce livre pour l'emprunter"
+    show_borrowed:
+      returned_book: "Ci-dessous la fiche du livre que vous restituez à : "
+      comment_book: "Vos commentaires sur ce livre :"
+      comment_note: |
+        "Seul le ou la propriétaire peut voir les commentaires, ainsi que les autres membres quand le livre est empruntable . 
+        Vous pouvez voir tous vos commentaires dans la partie commentaires de la page d'accueil."
+      comment: "Commentaire : "
+      comment_submitted: " Commentaire envoyé : "
+      delete: "Supprimer"
+      edit: "Editer"
+      return_book: "Rendre le livre"
+      comment_ones_book: "Laissez un commentaire sur l'exemplaire de %{title} appartenant à %{username}"                                               
+    show:
+      select_book: "Ci-dessous la fiche du livre que vous avez sélectionné :"
+      status: "Statut :"
+      user_comments: "Commentaires des membres qui ont emprunté ce livre :"
+      delete: "Supprimer"
+      edit: "Editer"
+  comments:
+    display_all:
+      comment: "Commentaire : "
+      user: "User: "
+      comment_submitted: " Commentaire envoyé : "
+    edit:
+      h1: "Modifiez votre commentaire ci-dessous !"
+    index:
+      h1: "Vos commentaires:"      
+      book: "Titre du livre : "
+      comment: "Commentaire : "
+      comment_submitted: " Commentaire envoyé : "
+      delete: "Supprimer"
+      edit: "Editer"
+    new:
+      h1: "Entrez un commentaire ci-dessous !"         
+  genre:
+    show:
+      no_book: "Vous n'avez aucun livre de ce genre dans votre bibliothèque."
+      your_book: " Livres dans votre bibliothèque : "
+      genre_nobook: "Pas de livres de ce genre à emprunter."
+      genre_book: " livres empruntables : "                 
   layouts:
+    error_messages:
+      h2: " a empêché la sauvegarde en cours."  
     application:
       title: "Soyons livres"

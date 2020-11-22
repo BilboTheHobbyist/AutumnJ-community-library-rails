@@ -4,9 +4,9 @@
 
 <div class="book-info">
   <% if !@books.present? %>
-    <strong>You don't have any books by <%= @author.name %> in your collection.</strong></br>
+    <strong><%= p('.no_book', author_name:@author.name) %></strong></br>
   <% else %>
-    <strong>Books by <%= @author.name %> in your collection: </strong><% @books.all.each do |book| %>
+    <strong><%= p('.author_book', author_name:@author.name) %></strong><% @books.all.each do |book| %>
       <ul><%= link_to book.title, book_path(book) %></ul>
     <% end %>
   <% end %>
@@ -14,9 +14,9 @@
 
 <div class="book-info">
   <% if !@borrowable_books.present? %>
-    <strong>No books available to borrow by <%= @author.name %>.</strong></br>
+    <strong><%= p('.noborrow_book', author_name:@author.name) %></strong></br>
   <% else %>
-    <strong>Books by <%= @author.name %> available to borrow: </strong><% @borrowable_books.all.each do |book| %>
+    <strong><%= p('.borrow_book', author_name:@author.name) %></strong><% @borrowable_books.all.each do |book| %>
       <ul><%= link_to book.title, view_borrowable_book_path(book) %></ul>
     <% end %>
   <% end %>
