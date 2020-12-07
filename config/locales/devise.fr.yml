@@ -6,6 +6,8 @@ fr:
       confirmed: "Votre compte a été validé."
       send_instructions: "Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes."
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez bientôt recevoir un e-mail contenant les instructions de confirmation de votre compte."
+      new:
+        confirm_form: "Renvoyer les instructions de confirmation"      
     failure:
       already_authenticated: "Vous êtes déjà connecté."
       inactive: "Votre compte n'est pas encore activé."
@@ -18,25 +20,55 @@ fr:
       unconfirmed: "Vous devez valider votre compte pour continuer."
     mailer:
       confirmation_instructions:
+        welcome: "Bienvenue %{email} !"
+        explain: "You can confirm your account email through the link below:"    
         subject: "Instructions de confirmation"
+        confirm: "Confirmer mon compte"        
       reset_password_instructions:
+        welcome: "Bonjour %{email} !"
+        explain: "Quelqu'un a demandé la réinitialisation de votre mot de passe. Vous pouvez le faire via le line ci-dessous."
+        link: "Réinitialiser mon mot de passe"
+        ignore: "Si vous n'êtes pas à l'origine de cette demande, ne tenez pas compte de ce mail."
+        nochange: "Votre mot de passe restera inchangé tant que vous n'aurez pas cliqué sur le lien ci-dessus, puis saisi votre nouveau mot de passe."           
         subject: "Instructions pour changer le mot de passe"
       unlock_instructions:
+        welcome: "Bonjour %{email} !"
+        explain: "Suite à un nombre trop élevé d'échecs de connexions, votre compte a été verrouillé."
+        unlock: "Cliquez sur le lien ci-dessous pour déverrouiller votre compte : "
+        link: "Déverrouiller mon compte"            
         subject: "Instructions pour déverrouiller le compte"
       email_changed:
+        welcome: "Bonjour %{email} !"
+        explain: "Nous vous informons que votre nouvel email sera %{email}"             
         subject: "Votre adresse e-mail a été modifiée avec succès"
       password_change:
+        welcome: "Bonjour %{email} !"
+        explain: "Nous vous informons que votre mot de passe a été mis à jour."                
         subject: "Votre mot de passe a été modifié avec succès"
     omniauth_callbacks:
       failure: "Nous n'avons pas pu vous authentifier via %{kind} : '%{reason}'."
       success: "Authentifié avec succès via %{kind}."
     passwords:
+      edit:
+        h2: "Modifiez votre mot de passe"
+        new: "Nouveau mot de passe"        
+        min_length: "{nb} characters minimum"
+        confirm: "Confirmez votre nouveau mot de passe"
+        form: "Changer mon mot de passe"
+      new:
+        h2: "Mot de passe oublié ?"
+        send: "Envoyez-moi les instructions pour réinitialiser mon mot de passe"                             
       no_token: "Vous ne pouvez accéder à cette page sans passer par un e-mail de réinitialisation de mot de passe. Si vous êtes passé par un e-mail de ce type, assurez-vous d'utiliser l'URL complète."
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants."
       send_paranoid_instructions: "Si votre e-mail existe dans notre base de données, vous allez recevoir un lien de réinitialisation par e-mail."
       updated: "Votre mot de passe a été édité avec succès, vous êtes maintenant connecté."
       updated_not_active: "Votre mot de passe a été changé avec succès."
     registrations:
+      edit:    
+        h2: "Editer {name}"
+        waiting: "En attente de confirmation pour : {name}"
+        min_length: "{nb} characters minimum"
+        current: "(nous avons besoin de votre mot de passe actuel pour valider vos modifications)"                
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
       signed_up: "Bienvenue, vous êtes connecté."
       signed_up_but_inactive: "Vous êtes bien enregistré. Vous ne pouvez cependant pas vous connecter car votre compte n'est pas encore activé."

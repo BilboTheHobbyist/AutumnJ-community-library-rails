@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'legal_notices', to: 'pages#legal_notices', as:'legal_notices'
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   # sets the index action for the books controller as the root path for a signed in user 

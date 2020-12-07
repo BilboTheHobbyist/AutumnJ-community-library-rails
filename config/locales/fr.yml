@@ -101,4 +101,5 @@ fr:
     error_messages:
       h2: " a empêché la sauvegarde en cours."  
     application:
-      title: "Soyons livres"
+      title: "Soyons livres"   
+

@@ -6,6 +6,8 @@ en:
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+      new:
+        confirm_form: "Resend confirmation instructions"
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account is not activated yet."
@@ -18,25 +20,55 @@ en:
       unconfirmed: "You have to confirm your email address before continuing."
     mailer:
       confirmation_instructions:
+        welcome: "Welcome %{email}!"
+        explain: "You can confirm your account email through the link below:"         
         subject: "Confirmation instructions"
+        confirm: "Confirm my account"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        welcome: "Hello %{email}!"
+        explain: "Someone has requested a link to change your password. You can do this through the link below."
+        link: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        nochange: "Your password won't change until you access the link above and create a new one."
+        subject: "Reset password instructions"        
       unlock_instructions:
+        welcome: "Hello %{email}!"
+        explain: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        unlock: "Click the link below to unlock your account:"
+        link: "Unlock my account"
         subject: "Unlock instructions"
       email_changed:
+        welcome: "Hello %{email}!"
+        explain: "We're contacting you to notify you that your email is being changed to %{email}"
         subject: "Email Changed"
       password_change:
+        welcome: "Hello %{email}!"
+        explain: "We're contacting you to notify you that your password has been changed."        
         subject: "Password Changed"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
+      edit:
+        h2: "Change your password"
+        new: "New password"
+        min_length: "{nb} characters minimum"
+        confirm: "Confirm new password"
+        form: "Change my password"
+      new:
+        h2: "Forgot your password?"
+        send: "Send me reset password instructions"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
       updated: "Your password has been changed successfully. You are now signed in."
       updated_not_active: "Your password has been changed successfully."
     registrations:
+      edit:
+        h2: "Edit {name}"
+        waiting: "Currently waiting confirmation for: {name}"
+        min_length: "{nb} characters minimum"
+        current: "(we need your current password to confirm your changes)"  
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
       signed_up: "Welcome! You have signed up successfully."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
