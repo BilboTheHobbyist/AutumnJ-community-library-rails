@@ -18,3 +18,8 @@
 
 # Ignore
 .env
+*
+# Ignore local backups
+.ori
+.pg
+.sqlite3

@@ -57,3 +57,5 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'yaml_db'
+gem 'pg'
